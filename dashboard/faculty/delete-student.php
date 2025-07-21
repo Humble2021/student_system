@@ -18,7 +18,6 @@ if (isset($_GET['delete']) && $_GET['delete']) {
     }
 }
 
-// Get all students
 $stmt = $pdo->query("SELECT * FROM students ORDER BY name");
 $students = $stmt->fetchAll();
 ?>

@@ -119,9 +119,15 @@ if ($_POST) {
                     <input type="text" name="course">
                 </div>
                 <div class="form-group">
-                    <label>Year Level:</label>
-                    <input type="number" name="year_level" min="1" max="4">
-                </div>
+                <label>Year Level:</label>
+                <select name="year_level" onchange="toggleFields()" required>
+                    <option value="">Select Year Level</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+            </div>
             </div>
 
             <div id="faculty-fields" style="display: none;">

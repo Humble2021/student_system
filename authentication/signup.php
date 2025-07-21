@@ -15,14 +15,12 @@ if ($_POST) {
         $course = $_POST['course'];
         $year_level = $_POST['year_level'];
 
-        // Check if student email exists
         $stmt = $pdo->prepare("SELECT * FROM students WHERE email = ?");
         $stmt->execute([$email]);
 
         if ($stmt->fetch()) {
             $error = 'Email already exists as a student';
         } else {
-            // Generate unique student ID (you can customize format)
             $student_id = '2024-' . rand(100, 999);
 
             $stmt = $pdo->prepare("INSERT INTO students (student_id, name, email, password, course, year_level)
@@ -38,14 +36,12 @@ if ($_POST) {
         $department = $_POST['department'];
         $position = $_POST['position'];
 
-        // Check if faculty email exists
         $stmt = $pdo->prepare("SELECT * FROM faculty WHERE email = ?");
         $stmt->execute([$email]);
 
         if ($stmt->fetch()) {
             $error = 'Email already exists as a faculty';
         } else {
-            // Generate unique faculty ID
             $faculty_id = 'FAC-' . rand(100, 999);
 
             $stmt = $pdo->prepare("INSERT INTO faculty (faculty_id, name, email, password, department, position)
